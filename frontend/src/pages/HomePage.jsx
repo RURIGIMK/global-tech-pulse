@@ -9,7 +9,7 @@ export default function HomePage() {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    fetch('/api/articles')
+    fetch('/data/articles.json')
       .then(res => res.json())
       .then(data => {
         setArticles(data);
@@ -19,7 +19,7 @@ export default function HomePage() {
         console.error(err);
         setLoading(false);
       });
-  }, []);
+}, []);
 
   const categories = useMemo(() => {
     const cats = [...new Set(articles.map(a => a.category))];

@@ -3,10 +3,10 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/global-tech-pulse/',    // <-- change this
   css: {
-    transformer: 'postcss',   // PostCSS (Tailwind) runs first
-    lightningcss: false,      // disable LightningCSS entirely
-    minify: 'esbuild',        // use esbuild for final minification
+    transformer: 'postcss',
+    lightningcss: false,
+    minify: 'esbuild',
   },
 });

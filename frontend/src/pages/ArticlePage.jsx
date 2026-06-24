@@ -9,14 +9,15 @@ export default function ArticlePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`/api/articles/${id}`)
+    fetch('/data/articles.json')
       .then(res => res.json())
-      .then(data => {
-        setArticle(data);
+      .then(articles => {
+        const found = articles.find(a => a.id === id);
+        setArticle(found || null);
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [id]);
+}, [id]);
 
   const shareArticle = async () => {
     const url = window.location.href;
