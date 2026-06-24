@@ -1,14 +1,8 @@
 {
-  "functions": {
-    "backend/main.py": {
-      "runtime": "python3.9"
-    }
-  },
+  "buildCommand": "cd frontend && npm install && npm run build && cp -r dist ../backend/static && cd ../backend && pip install -r requirements.txt",
+  "outputDirectory": "backend",
   "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "backend/main.py"
-    }
+    { "source": "/(.*)", "destination": "/backend/main.py" }
   ],
   "crons": [
     {
