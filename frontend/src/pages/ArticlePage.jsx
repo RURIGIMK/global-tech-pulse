@@ -8,16 +8,16 @@ export default function ArticlePage() {
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch('/data/articles.json')
-      .then(res => res.json())
-      .then(articles => {
-        const found = articles.find(a => a.id === id);
-        setArticle(found || null);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
-}, [id]);
+useEffect(() => {
+     fetch(new URL('data/articles.json', import.meta.url).href)
+       .then(res => res.json())
+       .then(articles => {
+         const found = articles.find(a => a.id === id);
+         setArticle(found || null);
+         setLoading(false);
+       })
+       .catch(() => setLoading(false));
+   }, [id]);
 
   const shareArticle = async () => {
     const url = window.location.href;
