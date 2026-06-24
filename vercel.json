@@ -3,11 +3,5 @@
   "outputDirectory": "backend",
   "rewrites": [
     { "source": "/(.*)", "destination": "/backend/main.py" }
-  ],
-  "crons": [
-    {
-      "path": "/api/refresh-news",
-      "schedule": "0 * * * *"
-    }
   ]
 }
